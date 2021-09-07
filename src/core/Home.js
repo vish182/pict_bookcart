@@ -18,7 +18,7 @@ const Home = () => {
     }, []);
 
     const loadProductBySell = () => {
-        getProducts('sold', 10)
+        getProducts('sold', 5)
         .then((data) => {
             if(data.error){
                 setError(data.error);
@@ -29,7 +29,7 @@ const Home = () => {
     };
 
     const loadProductByArrival = () => {
-        getProducts('createdAt', 10)
+        getProducts('createdAt', 5)
         .then((data) => {
             if(data.error){
                 setError(data.error);

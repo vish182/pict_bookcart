@@ -23,7 +23,7 @@ export const getFilteredProducts = (skip, limit, filters = {}) => {
 
     const data = {skip, limit, filters};
     //console.log("data: ", data)
-
+    console.log("filters: ",JSON.stringify(data))
     return fetch(`${API}/products/by/search`, {
         method: 'POST',
         headers: {

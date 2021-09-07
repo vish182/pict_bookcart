@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {signout, isAuthenticated} from '../auth'
+import "./menu.css";
 
 const isActive = (history, path) => {
     if(history.location.pathname.toString() === path.toString()){
@@ -12,40 +13,52 @@ const isActive = (history, path) => {
 
 const Menu = ({history}) => {
     return(
-        <div>
-            <ul className="nav nav-tabs bg-primary">
-                <li className="nav-item">
-                    <Link className="nav-link" style={isActive(history, "/")} to="/">Home</Link>
-                </li>  
-
-                 <li className="nav-item">
-                    <Link className="nav-link" style={isActive(history, "/shop")} to="/shop">Shop</Link>
-                </li>   
+        <div className="navbar">
+            <div className="logo"></div>
+            <ul className="navbar-nav">
+                <Link className="nav-link" style={isActive(history, "/")} to="/">
+                    <li className="nav-item">
+                        Home
+                    </li>  
+                </Link>
+                <Link className="nav-link" style={isActive(history, "/shop")} to="/shop">
+                    <li className="nav-item">
+                    Shop
+                    </li>
+                </Link>   
                 {!isAuthenticated() && (
                 <Fragment>
-                    <li>    
-                        <Link className="nav-link" style={isActive(history, "/signup")} to="/signup">Signup</Link>
-                    </li>    
-                    <li>    
-                        <Link className="nav-link" style={isActive(history, "/signin")} to="/signin">Signin</Link>
-                    </li>
+                    <Link className="nav-link" style={isActive(history, "/signup")} to="/signup">
+                        <li className="nav-item">    
+                            Signup
+                        </li>
+                    </Link>
+                    <Link className="nav-link" style={isActive(history, "/signin")} to="/signin">  
+                        <li className="nav-item">    
+                            Signin
+                        </li>
+                    </Link>
                     
                 </Fragment>)}
                 {isAuthenticated() && (
                     <Fragment>
-                        {isAuthenticated() && isAuthenticated().user.role === 0 && (
-                            <li>    
-                                <Link className="nav-link" style={isActive(history, "/user/dashboard")} to="/user/dashboard">Dashboard</Link>
-                            </li>
+                        {isAuthenticated().user && isAuthenticated().user.role === 0 && (
+                            <Link className="nav-link" style={isActive(history, "/user/dashboard")} to="/user/dashboard">
+                                <li className="nav-item">    
+                                    Dashboard
+                                </li>
+                            </Link>
                         )}
 
                         {isAuthenticated() && isAuthenticated().user.role === 1 && (
-                            <li>    
-                                <Link className="nav-link" style={isActive(history, "/admin/dashboard")} to="/admin/dashboard">Dashboard</Link>
-                            </li>
+                            <Link className="nav-link" style={isActive(history, "/admin/dashboard")} to="/admin/dashboard">
+                                <li className="nav-item">    
+                                    Dashboard
+                                </li>
+                            </Link>
                         )}
 
-                        <li>    
+                        <li className="nav-item">    
                             <span className="nav-link" style={{'cursor':'pointer', color:'#ffffff'}} onClick={() => {
                                     signout(() => {
                                     history.push('/');

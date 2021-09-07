@@ -1,10 +1,11 @@
 import { API } from '../config';
 import React , {useEffect, useState} from 'react';
 import Layout from './Layout';
-import {getCategories} from '../admin/apiAdmin';
+import {getCategories, getDepartments} from '../admin/apiAdmin';
 import {getFilteredProducts} from './apiCore';
 import Card from './Card';
 import Checkbox from './Checkbox';
+import CheckboxDept from './CheckboxDept';
 import RadioBox from './RadioBox';
 import {prices} from './fixedPrices';
 import '../styles.css';
@@ -12,9 +13,10 @@ import '../styles.css';
 const Shop = () => {
     
     const [myFilters, setMyFilters] = useState({
-        filters: {categories: '', price: 0}
+        filters: {category: '', department:'', price: 0}
     });
     const [categories, setCategories] = useState([]);
+    const [departents, setDepartments] = useState([]);
     const [error, setError] = useState('');
     const [limit, setLimit] = useState(8);
     const [skip, setSkip] = useState(0);
@@ -30,6 +32,17 @@ const Shop = () => {
                 setCategories(data);
             }
         });
+
+        getDepartments()
+        .then((dept) => {
+            // console.log("depts: ", depts);
+            if(dept.error){
+                setError(error);
+            } else{
+                setDepartments(dept);
+                
+            }
+        })
     };
 
     useEffect(() => {
@@ -115,6 +128,10 @@ const Shop = () => {
                     <h4>Filter by category</h4>
                     <ul>
                         <Checkbox categories={categories} handleFilters={filters => handleFilters(filters, 'category')}/>
+                    </ul>
+                    <h4>Filter by category</h4>
+                    <ul>
+                        <CheckboxDept departments={departents} handleFilters={filters => handleFilters(filters, 'department')}/>
                     </ul>
                     <div>
                         <hr/>

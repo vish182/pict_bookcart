@@ -19,6 +19,9 @@ const Dashboard = () => {
                     <li className="list-group-item">
                         <Link className="nav-link" to="/profile/update">Update Profile</Link>
                     </li>
+                    <li className="list-group-item">
+                        <Link className="nav-link" to="/create/product">Create Product</Link>
+                    </li>
                 </ul>
             </div>
         );

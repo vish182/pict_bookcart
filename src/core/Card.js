@@ -5,10 +5,10 @@ import '../styles.css';
 
 const Card = ({product}) => {
 
-    const showProductQuantity = () => {
+    // const showProductQuantity = () => {
         
-        return product.quantity > 0 ? <span className="badge-primary badge-pill">In-Stock</span> : <span className="badge-primary badge-pill">Out of stock</span>
-    };
+    //     return product.quantity > 0 ? <span className="badge-primary badge-pill">In-Stock</span> : <span className="badge-primary badge-pill">Out of stock</span>
+    // };
 
     return(
         <div className="mycard-container">
@@ -20,7 +20,7 @@ const Card = ({product}) => {
             </div>
             <div className="mycard-body">
                 <p><p>₹{product.price}</p></p>
-                {showProductQuantity()}
+                {/* {showProductQuantity()} */}
             </div>
             <div className="row">
                  <Link className="ml-4 mb-2 " to={`/product/view/${product._id}`}>
