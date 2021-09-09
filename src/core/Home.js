@@ -14,7 +14,7 @@ const Home = () => {
 
     useEffect(() =>{
         loadProductByArrival();
-        loadProductBySell();
+        //loadProductBySell();
     }, []);
 
     const loadProductBySell = () => {
@@ -29,7 +29,7 @@ const Home = () => {
     };
 
     const loadProductByArrival = () => {
-        getProducts('createdAt', 5)
+        getProducts('createdAt', 10)
         .then((data) => {
             if(data.error){
                 setError(data.error);
@@ -45,13 +45,13 @@ const Home = () => {
             <div>
                 <Search/>
             </div>
-            <div className="row">
+            {/* <div className="row">
                 <h2 className="mb-2 mx-auto">Best Sellers</h2>
                 
             </div>
             <div className="row fluid detail-parent p-5">
                 {productBySell.map((product, i) =>(<Card key={i} product={product} />))}
-            </div>
+            </div> */}
             <hr/>
             <div className="row">
                 <h2 className="mb-2 fluid mx-auto">New Arrivals</h2>

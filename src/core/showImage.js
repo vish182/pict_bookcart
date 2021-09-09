@@ -3,7 +3,7 @@ import React , {useEffect, useState} from 'react';
 import '../styles.css';
 
 export const ShowImage = ({item, url, imageNumber, myStyling}) => {
-    console.log(item._id);
+    // console.log(item._id);
     const imageNo = imageNumber ? imageNumber : 1;
 
     return(

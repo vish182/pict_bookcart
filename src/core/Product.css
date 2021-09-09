@@ -55,7 +55,8 @@
 }
 
 .box span {
-    color: crimson;
+    color: #356288;
+    font-size: 2em;
 }
 
 .box .colors button {
@@ -97,7 +98,7 @@
 }
 
 .box .cart {
-    background: #333;
+    background: #356288;
     color: white;
     outline: none;
     border: none;

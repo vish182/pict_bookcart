@@ -9,11 +9,12 @@ import CheckboxDept from './CheckboxDept';
 import RadioBox from './RadioBox';
 import {prices} from './fixedPrices';
 import '../styles.css';
+import { Search } from './Search';
 
 const Shop = () => {
     
     const [myFilters, setMyFilters] = useState({
-        filters: {category: '', department:'', price: 0}
+        filters: {category: '', department:'', price: 0, str: ""}
     });
     const [categories, setCategories] = useState([]);
     const [departents, setDepartments] = useState([]);
@@ -22,6 +23,7 @@ const Shop = () => {
     const [skip, setSkip] = useState(0);
     const [filteredResults, setFilteredResults] = useState([]);
     const [size, setSize] = useState(0);
+    const [search, setSearch] = useState('');
 
     const init = () => {
         getCategories()
@@ -119,6 +121,36 @@ const Shop = () => {
 
         return array;
     };
+    ////////////////////////////////////////////////
+
+    const handleTextChange = (event) => {
+        console.log(event.target.value);
+        setSearch(event.target.value);
+    };
+
+    const searchSubmit = (e) => {
+        e.preventDefault();
+        const newfilter = {...myFilters}
+        newfilter.filters.str = search;
+        console.log(newfilter);
+        setMyFilters(newfilter);
+        loadFilteredResults(newfilter.filters);
+    };
+
+    const searchForm = () => {
+        return(
+            <div className="mb-4">
+                <span className="input-group-text">
+                    <div className="input-group input-group-lg">
+                        <input type="search" minlength="4" className="form-control" onChange={handleTextChange} placeholder="Search"/>
+                    </div>
+                    <div className="btn input-group-append" style={{border: 'none'}}>
+                        <button className="input-group-text" onClick={searchSubmit}>Search</button>
+                    </div>
+                </span>
+            </div>
+        );
+    };
 
 
    return(
@@ -141,9 +173,10 @@ const Shop = () => {
                         <RadioBox prices={prices} handleFilters={filters => handleFilters(filters, 'price')}/>
                     </div>
                 </div>
-
+                
                 <div className="shop-box">
-                    <h2 className="mb-4">Products</h2>
+                    {searchForm()}
+                    <h2 className="mb-4">Results</h2>
                     <div className="flex-container wrap">
                         {filteredResults.map((product, i) => (
                                 <Card key={i} product={product}/>

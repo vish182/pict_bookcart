@@ -61,7 +61,7 @@ const Dashboard = () => {
                 </div>
                 <div className="col-9">
                 {userInfo()}
-                {purchaseHistory()}
+                {/* {purchaseHistory()} */}
                 </div>
             </div>
 
