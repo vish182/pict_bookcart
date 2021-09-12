@@ -103,10 +103,12 @@
     box-shadow: 0px 0px 15px -5px;
     transition: 0.1s;
     animation: ease-in-out;
+
+    background-color: white;
 }
 
 .mycard-container:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0px 0px 15px 0px;
 }
 
@@ -126,6 +128,59 @@
 .mycard-body {
     margin: 1rem;
     margin-top: 0rem;
+}
+
+.mycard-btn {
+    box-sizing: border-box;
+    /* appearance: none; */
+    background-color: transparent;
+
+    border-radius: 0.6em;
+    /* cursor: pointer; */
+    display: flex;
+    /* align-self: center; */
+    font-size: 1em;
+    font-weight: 200;
+    /* line-height: 1; */
+    margin: 0px;
+    padding: 5px 10px;
+    text-decoration: none;
+    /* text-align: center; */
+    /* text-transform: uppercase; */
+    /* font-family: 'Montserrat', sans-serif; */
+    font-weight: 400;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out, background-color 300ms ease-in-out;
+}
+
+.mycard-btn a:hover,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+}
+
+.btn-red {
+    color: #ee612e;
+    border: 1px solid #ee612e;
+
+}
+
+.btn-red:hover {
+    box-shadow: 0 0 40px 40px #ee612e inset;
+    background-color: #ee612e;
+    color: white;
+}
+
+.btn-blue {
+    color: #356288;
+    border: 1px solid #356288;
+
+}
+
+.btn-blue:hover {
+    box-shadow: 0 0 40px 40px #356288 inset;
+    background-color: #356288;
+    color: white;
 }
 
 .mycard-btn-view {}
@@ -202,6 +257,10 @@
     margin-top: 15px;
     margin-left: 20px;
 }
+
+/* .radio-price-label {
+    font-size: 1vw;
+} */
 
 @media only screen and (max-width: 500px) {
     .shop-parent {

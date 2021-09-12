@@ -24,10 +24,10 @@ const Card = ({product}) => {
             </div>
             <div className="row">
                  <Link className="ml-4 mb-2 " to={`/product/view/${product._id}`}>
-                    <button className="btn btn-outline-primary mt-2 bt-2 mr-2">View</button>
+                    <button className="mycard-btn btn-blue">View</button>
                 </Link>
                 <Link className="mb-2">
-                    <button className="btn btn-outline-warning mt-2 bt-2">Add to Cart</button>
+                    <button className="mycard-btn btn-red ml-2">Add to Cart</button>
                  </Link>
             </div>
         </div>

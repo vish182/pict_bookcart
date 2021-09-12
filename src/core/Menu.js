@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import {signout, isAuthenticated} from '../auth'
+import {signout, isAuthenticated} from '../auth';
+
+import BookLogo from '../assets/booklogo5.png';
+
 import "./menu.css";
 
 const isActive = (history, path) => {
@@ -11,10 +14,19 @@ const isActive = (history, path) => {
     }
 };
 
+const Logo = () => {
+    return(
+        <span className="logo-div">
+            <img src={BookLogo} className="logo"/> 
+        </span>
+    );
+}
+
 const Menu = ({history}) => {
     return(
         <div className="navbar">
-            <div className="logo"></div>
+            {/* <div className="logo"></div> */}
+            <Logo/>
             <ul className="navbar-nav">
                 <Link className="nav-link" style={isActive(history, "/")} to="/">
                     <li className="nav-item">
