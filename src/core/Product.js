@@ -53,8 +53,11 @@ export const ProductPage = (props) => {
                             <span>₹{product.price}</span>
                         </div> 
                         <hr/> 
-                        <button className="cart">Add to cart</button>
-                        <button className="cart">Buy-now</button>
+                        <div style={{display: "flex"}}>
+                            <button className="mycard-btn btn-blue">Add to cart</button>
+                            <button className="mycard-btn btn-red ml-2">Buy-now</button>
+                        </div>
+                        
                         <p>{product.description}</p>
                         <hr/>
                     </div>
