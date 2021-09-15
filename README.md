@@ -1,5 +1,5 @@
 # MERN e-commerce
-Similar to e-bay, but for students of PICT.
+A website for buying and selling used books/stationary for college students
 
 backend: https://github.com/vish182/pict_bookcart_backend
 
