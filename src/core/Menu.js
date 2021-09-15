@@ -54,7 +54,7 @@ const Menu = ({history}) => {
                 </Fragment>)}
                 {isAuthenticated() && (
                     <Fragment>
-                        {isAuthenticated().user && isAuthenticated().user.role === 0 && (
+                        {/* {isAuthenticated().user && isAuthenticated().user.role === 0 && (
                             <Link className="nav-link" style={isActive(history, "/user/dashboard")} to="/user/dashboard">
                                 <li className="nav-item">    
                                     Dashboard
@@ -68,7 +68,21 @@ const Menu = ({history}) => {
                                     Dashboard
                                 </li>
                             </Link>
-                        )}
+                        )} */}
+
+
+                        <Link className="nav-link" style={isActive(history, "/user/dashboard")} to="/user/dashboard">
+                            <li className="nav-item">    
+                                Dashboard
+                            </li>
+                        </Link>
+                        
+
+                        <Link className="nav-link" style={isActive(history, "/admin/dashboard")} to="/messages/all">
+                                <li className="nav-item">    
+                                    Messages
+                                </li>
+                        </Link>
 
                         <li className="nav-item">    
                             <span className="nav-link" style={{'cursor':'pointer', color:'#ffffff'}} onClick={() => {

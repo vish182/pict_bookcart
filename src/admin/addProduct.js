@@ -139,7 +139,7 @@ export const AddProduct = () => {
                 </label> 
             </div>
 
-            <h4>Post Photo #2</h4>
+            {/* <h4>Post Photo #2</h4>
             <div className="form-group">
                 <label className="btn btn-secondary">
                     <input type="file" onChange={handleChange('photo2')} name="photo2" accept="image/*"></input>
@@ -158,7 +158,7 @@ export const AddProduct = () => {
                 <label className="btn btn-secondary">
                     <input type="file" onChange={handleChange('photo4')} name="photo4" accept="image/*"></input>
                 </label> 
-            </div>
+            </div> */}
 
             <div className="form-group">
                 <label className="text-muted">Item Name</label>

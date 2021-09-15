@@ -1,5 +1,6 @@
 import { API } from '../config';
 import React , {useEffect, useState} from 'react';
+import {Route, Redirect} from 'react-router-dom';
 import Layout from './Layout';
 import {getProducts} from './apiCore';
 import Card from './Card';
@@ -8,15 +9,20 @@ import {readProduct} from './apiCore';
 import {ShowImage} from './showImage';
 import './Product.css';
 import {DetailsThumb} from '../components/Thumbs';
+import {createConvo} from '../chat/chatApi';
+import { useHistory } from "react-router-dom";
 
 export const ProductPage = (props) => {
+
+    let history = useHistory();
 
     const [error, setError] = useState(false);
     const [product, setProduct] = useState({});
     const [imgNum, setImgNum] = useState(0);
     const imgNums = [1,2,3,4];
-    
 
+    let user;
+    
     const loadSingleProduct = (productId) => {
         readProduct(productId)
         .then((data) => {
@@ -24,6 +30,7 @@ export const ProductPage = (props) => {
                 setError(data.error);
             } else {
                 setProduct(data);
+                // console.log("product: ", data)
             }
         });
     };
@@ -31,10 +38,28 @@ export const ProductPage = (props) => {
     useEffect(() => {
         const productId = props.match.params.productId;
         loadSingleProduct(productId);
-       
+        
     }, []);
 
-   
+   const contactSeller = () => {
+        if(JSON.parse(localStorage.getItem('jwt'))){
+            user = JSON.parse(localStorage.getItem('jwt')).user;
+            console.log(user);
+        } else{
+            user = null;
+        }
+       console.log("user null? ",user == null, user);
+        if(user){
+            if(product.user === user._id) return;
+            console.log("signed in: ", {sellerEmail: product.user, userEmail: user._id});
+            createConvo({sellerEmail: product.user, userEmail: user._id})
+            .then((data)=>{
+                history.push(`/messages/${data.convId}`);
+            });
+        } else{
+           history.push('/');
+        }
+   }
 
 
     return(
@@ -45,7 +70,6 @@ export const ProductPage = (props) => {
                     <div className="big-img">
                         <ShowImage myStyling="view-product-img" item={product} url="product" imageNumber={1}/>
                     </div>
-
                     <div className="box">
                         <div>
                             <h2>{product.name}</h2>
@@ -54,8 +78,8 @@ export const ProductPage = (props) => {
                         </div> 
                         <hr/> 
                         <div style={{display: "flex"}}>
-                            <button className="mycard-btn btn-blue">Add to cart</button>
-                            <button className="mycard-btn btn-red ml-2">Buy-now</button>
+                            <button className="mycard-btn btn-blue" onClick={contactSeller}>Contact Seller</button>
+                            {/* <button className="mycard-btn btn-red ml-2">Buy-now</button> */}
                         </div>
                         
                         <p>{product.description}</p>
@@ -66,7 +90,7 @@ export const ProductPage = (props) => {
                 
             </div>
 
-           {JSON.stringify(product)}
+           {/* {JSON.stringify(product)} */}
         </Layout>
     );
 

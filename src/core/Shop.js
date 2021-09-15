@@ -142,7 +142,7 @@ const Shop = () => {
             <div className="mb-4">
                 <span className="input-group-text">
                     <div className="input-group input-group-lg">
-                        <input type="search" minlength="4" className="form-control" onChange={handleTextChange} placeholder="Search"/>
+                        <input type="search" minLength="4" className="form-control" onChange={handleTextChange} placeholder="Search"/>
                     </div>
                     <div className="btn input-group-append" style={{border: 'none'}}>
                         <button className="input-group-text" onClick={searchSubmit}>Search</button>

@@ -1,0 +1,110 @@
+.chat-parent {
+    display: flex;
+    flex-direction: row;
+
+
+    height: 50vh;
+    width: 100%;
+}
+
+.convos {
+    flex: 2;
+    background-color: #aacfdd;
+    border-radius: 5px;
+    margin: 10px;
+
+    height: 100%;
+    width: 100%;
+
+    overflow: scroll;
+}
+
+.chat-div {
+    flex: 5;
+    background-color: #aacfdd;
+    margin: 10px;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+
+
+}
+
+.chat-display {
+    background-color: #aacfdd;
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+
+    border-radius: 5px;
+
+    overflow: scroll;
+}
+
+.msg-parent {
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+}
+
+.msg-parent-rec {
+    justify-content: left;
+}
+
+.msg-parent-sent {
+    justify-content: right;
+}
+
+.msg {
+    width: fit-content;
+    padding: 8px;
+    margin: 10px;
+
+    font-size: 1.5em;
+    border-radius: 20px;
+
+    max-width: 50%;
+
+    text-align: center;
+}
+
+.rec {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 25px;
+    background-color: #288bdb;
+    color: white;
+
+}
+
+.sent {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 25px;
+    background-color: white;
+    color: #288bdb;
+}
+
+.message-form {
+    position: relative;
+}
+
+.convo-bubble {
+    padding: 10px;
+    margin: 20px 10px;
+    color: aliceblue;
+
+    /* background-color: thistle; */
+    border-radius: 10px;
+
+    font-size: 1.5em;
+    background-color: #ff9670;
+
+    text-align: center;
+
+    transition: 300ms;
+}
+
+.convo-bubble:hover {
+    transform: scale(1.05);
+}

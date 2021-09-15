@@ -91,7 +91,7 @@ export const Search  = () => {
                                 {categories.map((category, i) => (<option key={i} value={category._id}>{category.name}</option>))}
                             </select>
                         </div>
-                        <input type="search" minlength="4" className="form-control" onChange={handleChange('search')} placeholder="Search"/>
+                        <input type="search" minLength="4" className="form-control" onChange={handleChange('search')} placeholder="Search"/>
                     </div>
                     <div className="btn input-group-append" style={{border: 'none'}}>
                         <button className="input-group-text">Search</button>

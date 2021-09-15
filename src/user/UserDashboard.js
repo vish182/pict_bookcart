@@ -13,14 +13,17 @@ const Dashboard = () => {
             <div className="card">
                 <h4 className="card-header">User Links</h4>
                 <ul className="list-group">
-                    <li className="list-group-item">
+                    {/* <li className="list-group-item">
                         <Link className="nav-link" to="/cart">Cart</Link>
-                    </li>
-                    <li className="list-group-item">
+                    </li> */}
+                    {/* <li className="list-group-item">
                         <Link className="nav-link" to="/profile/update">Update Profile</Link>
+                    </li> */}
+                    <li className="list-group-item">
+                        <Link className="nav-link" to="/create/product">Sell Item</Link>
                     </li>
                     <li className="list-group-item">
-                        <Link className="nav-link" to="/create/product">Create Product</Link>
+                        <Link className="nav-link" to="/remove/product">My Items</Link>
                     </li>
                 </ul>
             </div>

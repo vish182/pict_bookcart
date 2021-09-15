@@ -90,7 +90,7 @@ const Signin = () => {
             {showLoading()}
             {signUpForm()}
             {redirectUser()}
-            {JSON.stringify(values)}
+            {/* {JSON.stringify(values)} */}
         </Layout>
     );
 };

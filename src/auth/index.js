@@ -22,7 +22,7 @@ export const signup = (user) => {
 };
 
 export const signin = (user) => {
-    
+    // console.log("user: ", user);
     return fetch(`${API}/signin`, {
         method: 'POST',
         headers: {
@@ -32,12 +32,12 @@ export const signin = (user) => {
         body: JSON.stringify(user)
     })
     .then((response) =>{
-        //console.log(JSON.stringify(response.json()));
+        // console.log("signin: ",JSON.stringify(response));
         return response.json();
     })
     .catch((err) => {
-        console.log(err);
-        return err.json();
+        console.log("error signing: ",err);
+        return err;
     })
 };
 
