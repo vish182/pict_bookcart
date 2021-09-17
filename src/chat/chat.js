@@ -153,7 +153,7 @@ const MessageForm = ({textHandler, textSubmit, value}) => {
         <form className="message-form mb-4" onSubmit={textSubmit}>
             <span className="input-group-text">
                 <div className="input-group input-group-lg">
-                    <input type="search" minLength="1" className="form-control" onChange={textHandler} value={value} placeholder="Search"/>
+                    <input type="search" minLength="1" className="form-control" onChange={textHandler} value={value} placeholder="Type a message"/>
                 </div>
                 <div className="btn input-group-append" style={{border: 'none'}}>
                     <button className="input-group-text" >Send</button>
