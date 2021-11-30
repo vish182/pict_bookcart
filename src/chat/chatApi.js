@@ -73,7 +73,7 @@ export const createConvo = ({sellerEmail, userEmail}) => {
           convoid: convoId,
           sender: user._id,
           text: msg,
-          createdAt:  new Date().toLocaleString()
+          createdAt:  new Date().toISOString().replace(/T/,'').replace(/\..+/, '')
         })
         .then((docRef) => {
           console.log("Document written with ID: ", docRef);
