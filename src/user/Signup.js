@@ -45,22 +45,22 @@ const Signup = () => {
     const signUpForm = () =>{
         return(
             <form>
-            <div className="form-group">
+            <div className="form-group w-50">
                 <label className="text-muted">Name</label>
                 <input value={name} onChange={handleChange('name')} className="form-control" type="text"/>
             </div>
 
-            <div className="form-group">
+            <div className="form-group w-50">
                 <label className="text-muted">Email</label>
                 <input value={email} onChange={handleChange('email')} className="form-control" type="email"/>
             </div>
 
-            <div className="form-group">
+            <div className="form-group w-50">
                 <label className="text-muted">Password</label>
                 <input value={password} onChange={handleChange('password')} className="form-control" type="password"/>
             </div>
 
-            <div className="form-group">
+            <div className="form-group w-50">
                 <label className="text-muted">Phone no</label>
                 <input value={phone} onChange={handleChange('phone')} className="form-control" type="tel" pattern="[0-9]{10}"/>
             </div>
