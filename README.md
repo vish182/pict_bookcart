@@ -1,7 +1,7 @@
 # MERN e-commerce
 A website for buying and selling used books/stationary for college students
 
-demo: [demo](http://65.2.75.149/).
+# Demo: [demo](http://65.2.75.149/).
 
 backend: https://github.com/vish182/pict_bookcart_backend
 
