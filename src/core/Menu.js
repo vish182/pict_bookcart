@@ -84,6 +84,18 @@ const Menu = ({history}) => {
                                 </li>
                         </Link>
 
+                        <Link className="nav-link" style={isActive(history, "/create/product")} to="/create/product">
+                                <li className="nav-item">    
+                                   Sell
+                                </li>
+                        </Link>
+
+                        <Link className="nav-link" style={isActive(history, "/remove/product")} to="/remove/product">
+                                <li className="nav-item">    
+                                   My Items
+                                </li>
+                        </Link>
+
                         <li className="nav-item">    
                             <span className="nav-link" style={{'cursor':'pointer', color:'#ffffff'}} onClick={() => {
                                     signout(() => {
